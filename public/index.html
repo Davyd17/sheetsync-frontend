@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SheetSync Viewer</title>
+  <link rel="stylesheet" href="/src/css/styles.css" />
+</head>
+<body>
+  <div class="header">
+    <h1 id="apptitle">SheetSync</h1>
+  </div>
+  <div class="container">
+    <h1 id="spreadsheet-title"></h1>
+    <input type="text" id="searchInput" placeholder="Search by..." />
+    <div class="table-container">
+      <table id="dataTable">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="pagination"></div>
+    <h3 id="sheet-title"></h3>
+  </div>
+
+  <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>
