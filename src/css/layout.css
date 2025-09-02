@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  background-color: #ccc;
+  z-index: 1000;
+
+}
+
+.container {
+  background: white;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  width: 90rem;
+  max-width: 1200px;
+  max-height: fit-content;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}

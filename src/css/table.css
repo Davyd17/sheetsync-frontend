@@ -1,0 +1,39 @@
+.table-container {
+  overflow-x: auto;
+  border-radius: 17px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #004c9e;
+  color: white;
+
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+
+  text-align: center;
+
+}
+
+th:hover {
+
+  background-color: #037bfcfd;
+  cursor: pointer;
+
+}
+
+tbody tr:hover {
+  background-color: #4d7dd63d;
+  cursor: default;
+}
