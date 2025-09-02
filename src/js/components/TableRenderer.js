@@ -1,4 +1,5 @@
 import { escapeHtml } from '../utils/EscapeHtml.js';
+import { HeaderAsButtons } from './HeaderAsButtons.js';
 
 export class TableRenderer {
 
@@ -8,7 +9,7 @@ export class TableRenderer {
     this.tableBody = tableBody;
     }
 
-    renderTable(headers, rows) {
+    renderTable(onHeaderClick, headers, rows) {
 
         this.clearTable();
 
@@ -17,14 +18,20 @@ export class TableRenderer {
             return;
         }
 
-        this.#renderHeaders(headers);
+        this.#renderHeaders(headers, onHeaderClick);
         this.#renderRows(rows);
     }
 
-    #renderHeaders(headers) {
+    #renderHeaders(headers, onHeaderClick) {
 
         const row = headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
         this.tableHead.innerHTML = `<tr>${row}</tr>`;
+        const headerButtons = new HeaderAsButtons(this.tableHead);
+
+        headerButtons.tableHeaderAsButton((header) => {
+            onHeaderClick(header);
+        });
+        
     }
 
     #renderRows(rows) {

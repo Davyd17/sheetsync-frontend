@@ -11,6 +11,8 @@ import { Pagination } from '../components/Pagination.js';
 
 import { ErrorDisplay } from '../components/ErrorDisplay.js';
 
+import { TagSearch } from '../components/TagSearch.js';
+
 export class SheetSyncApp {
   constructor(spreadSheetId = '1GnfHRRt0YYGMQup-nnw8k-KsSQ0_jcwwpN-SsSedb1M') {
 
@@ -22,6 +24,8 @@ export class SheetSyncApp {
     this.tableBody = document.querySelector('#dataTable tbody');
 
     this.paginationContainer = document.getElementById('pagination')
+
+    this.searchContainer = document.querySelector('.search-container');
     //
 
     this.spreadSheetId = spreadSheetId;
@@ -38,6 +42,8 @@ export class SheetSyncApp {
     this.errorDisplay = new ErrorDisplay(this.tableRenderer, this.tableBody);
 
     this.pagination = new Pagination(this.paginationContainer);
+
+    this.tagSearch = new TagSearch(this.searchContainer);
   }
 
   async init() {
@@ -69,8 +75,15 @@ export class SheetSyncApp {
       this.pageResult = await this.sheetApi.fetchSheetDataById(this.sheetSummary.id, page);
 
       this.spreadsheetTitle.textContent = this.spreadsheet.title;
+<<<<<<< HEAD
 
       this.tableRenderer.renderTable(this.sheetSummary.headers, this.pageResult.content);
+=======
+      this.tableRenderer.renderTable(
+        header => this.tagSearch.addSearchCriteria(header),
+        this.sheetSummary.headers,
+        this.pageResult.content);
+>>>>>>> d26ac56 (feat(ui): integrate tag-based search into sheet view)
 
       this.pagination.renderButtonPages(
         this.pageResult.totalPages,
@@ -88,7 +101,6 @@ export class SheetSyncApp {
   async fetchDataByCriteria(page) {
 
     try {
-
 
     } catch (error) {
       console.error(`Error fetching data in page ${page}`, error);
